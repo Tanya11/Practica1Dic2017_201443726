@@ -73,10 +73,16 @@ namespace _EDD_Practica1
 
         private void button12_Click(object sender, EventArgs e)
         {
-            int num2 = 2;
             int num1 = 3;
+            int num2 = 2;
             MatrizOrtogonal matrix = new MatrizOrtogonal(num1, num2);
             matrix.CrearMatriz();
+            int dato, fila, col;
+            dato = 1000;
+            fila =0;
+            col = 1;
+            matrix.setearValor(dato, fila, col);
+            matrix.GraficarMatriz(matrix.Inicio );
         }
 
         private void button1_Click(object sender, EventArgs e)

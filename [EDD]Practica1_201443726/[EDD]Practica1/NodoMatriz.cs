@@ -14,7 +14,6 @@ namespace _EDD_Practica1
         private NodoMatriz abajo;
         private int dato;
         public int x, y;
-
         public int Dato
         {
             get { return dato; }

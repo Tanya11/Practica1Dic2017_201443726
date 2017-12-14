@@ -19,7 +19,11 @@ namespace _EDD_Practica1
             this.filas = filas;
             this.columnas = columnas;
         }
-
+        public NodoMatriz Inicio
+        {
+            get { return inicio ; }
+            set { inicio = value; }
+        }
         public void CrearMatriz()
         {
 
@@ -106,38 +110,50 @@ namespace _EDD_Practica1
             String texto = string.Empty;
             if (nodo != null)
             {
-               NodoMatriz aux = nodo;
+                NodoMatriz aux = nodo;
                 for (int i = 0; i < filas; i++)
                 {
                     //texto += "{rank = min ";
                     for (int j = 0; j < columnas; j++)
                     {
-                        texto += "Nodo" + nodo.x + nodo.y + " [label=\"" + nodo.Dato + "|" + nodo.x + "," + nodo.y + "\"];\n";
+                        if (i == 0)
+                        {
+                            texto += "{rank =min;\nNodo" + nodo.y + nodo.x + " [label=\"" + nodo.Dato + "|" + nodo.y + "," + nodo.x + "\"];\n";
+                        }
+                        else if (i == filas - 1)
+                        {
+                            texto += "{rank =max;\nNodo" + nodo.y + nodo.x + " [label=\"" + nodo.Dato + "|" + nodo.y + "," + nodo.x + "\"];\n";
+                        }
+                        else
+                        {
+                            texto += "{rank =same;\nNodo" + nodo.y + nodo.x + " [label=\"" + nodo.Dato + "|" + nodo.y + "," + nodo.x + "\"];\n";
+                        }
 
                         if (nodo.Izquierda != null)
                         {
-                            texto += "Nodo" + nodo.x + nodo.y + " -> Nodo"  + nodo.Izquierda.x + nodo.Izquierda.y + "[label = \"izq\"];\n ";
+                            texto += "Nodo" + nodo.y + nodo.x + " -> Nodo" + nodo.Izquierda.y + nodo.Izquierda.x + "[label = \"izq\"];\n ";
 
                         }
                         if (nodo.Derecha != null)
                         {
                             //texto += "}";
-                            texto += "Nodo" + nodo.x + nodo.y + " -> Nodo" + nodo.Derecha.x + nodo.Derecha.y + "[label = \"der\"];\n";
+                            texto += "Nodo" + nodo.y + nodo.x + " -> Nodo" + nodo.Derecha.y + nodo.Derecha.x + "[label = \"der\"];\n";
                         }
+                        texto += "}";
                         if (nodo.Arriba != null)
                         {
-                            texto += "Nodo" + nodo.x  + nodo.y  + " -> Nodo" + nodo.Arriba.x +nodo.Arriba.y + "[label = \"arri\"];\n";
+                            texto += "Nodo" + nodo.y + nodo.x + " -> Nodo" + nodo.Arriba.y + nodo.Arriba.x + "[label = \"arri\"];\n";
 
                         }
                         if (nodo.Abajo != null)
                         {
-                            texto += "Nodo" + nodo.x + nodo.y +  " -> Nodo"  + nodo.Abajo.x  + nodo.Abajo.y + "[label = \"aba\"];\n";
-                            
-                            nodo = nodo.Derecha ;
+                            texto += "Nodo" + nodo.y + nodo.x + " -> Nodo" + nodo.Abajo.y + nodo.Abajo.x + "[label = \"aba\"];\n";
+
                         }
+                        nodo = nodo.Derecha;
                         if (j == columnas - 1)
-                           
-                        aux = aux.Abajo;
+
+                            aux = aux.Abajo;
                     }
                     nodo = aux;
                 }
@@ -153,7 +169,8 @@ namespace _EDD_Practica1
             archivo = new StreamWriter("C:\\Users\\Usuario\\Desktop\\Matriz.dot");
             archivo.WriteLine("digraph Matriz{\n");
             archivo.WriteLine("label= \"Matriz Ortogonal\"\n");
-            archivo.WriteLine("node [shape=box]");
+            archivo.WriteLine("\tnode [shape=box];\n");
+            //archivo.WriteLine("\trankdir = UD;\n");
             archivo.WriteLine("\tnode [fontcolor=\"red\", height=0.5, color=\"black\"]\n");
             archivo.WriteLine("\tedge [color=\"black\", dir=fordware]\n");
             RecorrerParaGraficar(archivo);
@@ -168,19 +185,37 @@ namespace _EDD_Practica1
             Proceso.StartInfo = informacion;
             Proceso.Start();
         }
-        public void ObtenerNodo( int fi, int col) //metodo get para obtener posicion
-        {
-            for (int i = 0; fi < filas; i++)
+        public NodoMatriz ObtenerNodo(int fi, int col) //metodo get para obtener posicion
+        {//este debe obtener el nodo de la posicion y retornar el valor para llamar el metodo de
+            //setear y que le coloque el valor
+            NodoMatriz nodo, aux;
+            nodo = inicio;//(0,0)
+            aux = inicio;//(0,0)
+            //si viene 3,3
+            for (int i = 0; i <= fi; i++) //recorrer filas hasta que no sea la que venga //0,1,2,3
             {
-               for (int j= 0; j < col; i++)
+                for (int j = 0; j <= col; j++) //recorrer columnas  //0,1,2,3,0,1,2,3,0,1,2,3,0,1,2,3
                 {
-                     
+                    //algo que compare si llego a al nodo con la posicion
+                    if (i == fi  && j == col)     //si encontro el nodo en esa posicion    //falsex17,true
+                    {//tonces retornas el nodo en esa posicion
+                        return nodo;//return correcto
+                    }
+                    nodo = nodo.Derecha; //(3,3)  <----------------- posición correcta
+                    if (j == col)//falsex3,true,falsex3,true,falsex3,true, falsex3
+                        aux = aux.Abajo;//(3,0)
                 }
+                nodo = aux;//(3,0)
             }
+            return null;
         }
-        public void setearValores(int dato)
+        public void setearValor(int dato, int fil, int col)
         {
-
+            NodoMatriz obtener = ObtenerNodo(fil, col);
+            if (obtener != null)
+            {
+                obtener.Dato = dato;
+            }
         }
     }
 }
