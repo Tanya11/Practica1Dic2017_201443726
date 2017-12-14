@@ -1,0 +1,10 @@
+c:\users\usuario\documents\visual studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\bin\Debug\[EDD]Practica1.exe.config
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\bin\Debug\[EDD]Practica1.exe
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\bin\Debug\[EDD]Practica1.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\[EDD]Practica1.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\_EDD_Practica1.Form1.resources
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\_EDD_Practica1.Properties.Resources.resources
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\[EDD]Practica1.csproj.GenerateResource.Cache
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\[EDD]Practica1.exe
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\[EDD]Practica1.pdb
+C:\Users\Usuario\Documents\Visual Studio 2015\Projects\[EDD]Practica1\[EDD]Practica1\obj\Debug\_EDD_Practica1.Matriz.resources
