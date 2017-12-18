@@ -10,7 +10,7 @@ namespace _EDD_Practica1
 {
     class ListaCircular
     {
-        public static ListaCircular listCirc = new ListaCircular();
+        //public static ListaCircular listCirc = new ListaCircular();
         NodoListaCircular primero = new NodoListaCircular();
         NodoListaCircular ultimo = new NodoListaCircular();
 
@@ -41,21 +41,22 @@ namespace _EDD_Practica1
                 ultimo = nuevo;
                 primero.atras = ultimo;
             }
-            MessageBox.Show("dato ingresado");
+            MessageBox.Show("Usuario ingresado" + nuevo.dato.nombre );
             //Console.WriteLine("dato ingresado biennn!!");
         }
 
-        internal void mostrar()
-        {
-            informacion = new System.Diagnostics.ProcessStartInfo("cmd", "/c C:\\Users\\Usuario\\Desktop\\ListaCircular.png");
-            informacion.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            informacion.RedirectStandardOutput = true;
-            informacion.UseShellExecute = false;
-            informacion.CreateNoWindow = false;
-            Proceso = new System.Diagnostics.Process();
-            Proceso.StartInfo = informacion;
-            Proceso.Start();
-        }
+        //internal void mostrar()
+        //{
+
+        //    informacion = new System.Diagnostics.ProcessStartInfo("cmd", "/c C:\\Users\\Usuario\\Desktop\\ListaCircular.png");
+        //    informacion.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+        //    informacion.RedirectStandardOutput = true;
+        //    informacion.UseShellExecute = false;
+        //    informacion.CreateNoWindow = false;
+        //    Proceso = new System.Diagnostics.Process();
+        //    Proceso.StartInfo = informacion;
+        //    Proceso.Start();
+        //}
 
         public void RecorrerListaCircular()
         {
@@ -70,7 +71,7 @@ namespace _EDD_Practica1
                     actual = actual.siguiente;
                 } while (actual != primero);
             }
-                    }
+        }
 
         System.Diagnostics.ProcessStartInfo informacion;
         System.Diagnostics.Process Proceso;
@@ -99,6 +100,30 @@ namespace _EDD_Practica1
             }
             return false;
         }
+        public Usuario ObtenerListaCircular(String nombre, String contra)
+        {
+            NodoListaCircular actual = new NodoListaCircular();
+            Usuario abuscar = new Usuario(nombre, contra);
+            actual = primero;
+            if (actual != null) //si no esta vacia
+            {
+                do
+                {
+                    if (actual.dato.nombre == nombre && actual.dato.contraseña == contra)
+                    {
+                        //   MessageBox.Show("el usuario ya existe: " + actual.dato.nombre );
+                        return actual.dato;
+                    }
+                    actual = actual.siguiente;//para que siga buscando
+                } while (actual != primero); //si es el primero ya recorrio toda la lista
+
+            }
+            else
+            {
+                // MessageBox.Show("Lista vacia");
+            }
+            return null;
+        }
 
         public void EliminarListaCircular(String nombre, String contrasena)
         {
@@ -117,9 +142,25 @@ namespace _EDD_Practica1
                         encontrado = true;
                         actual.atras.siguiente = actual.siguiente; //para pasar el puntero al siguiente 
                         actual.siguiente.atras = actual.atras; //para enlazar el siguiente de eliminar con el anterior 
+                        MessageBox.Show("Eliminado correctamente");
+                        if (!(actual == actual.siguiente)) //si hAY mas de uno
+                        {
+
+                            if (actual == primero)//pregunta si es el primero
+                            {
+                                primero = actual.siguiente;
+                            }
+                        }
+                        else
+                        {
+                            primero = null;
+                        }
+
+                        break;
                     }
                     actual = actual.siguiente;//para que siga buscando
                 } while (actual != primero); //si es el primero ya recorrio toda la lista
+
                 if (!encontrado)
                 {
                     MessageBox.Show("El usuario no existe  :( " + actual.dato.nombre);
@@ -131,46 +172,36 @@ namespace _EDD_Practica1
             }
         }
 
-        public  void graficarLista()
-                    {
+        public void graficarLista()
+        {
             TextWriter archivo;
             archivo = new StreamWriter("C:\\Users\\Usuario\\Desktop\\ListaCircular.dot");
-            //            String mensaje = "hola";
-            //archivo.WriteLine(mensaje);
-               
-            MessageBox.Show("creado correctamente");
-              //try
-            //{
-            //    file1 = new File(nombre);
-            //    escribirarchivo = new FileWriter(file1);
-            //    bufferw = new BufferedWriter(escribirarchivo);
-            //    imprimirescrito = new PrintWriter(bufferw);
 
-             archivo.WriteLine ("digraph ListaS{\n");
-            archivo.WriteLine ("label= \"Lista Circular\"\n");
+            /// MessageBox.Show("creado correctamente");
+
+            archivo.WriteLine("digraph ListaS{\n");
+            archivo.WriteLine("label= \"Lista Circular\"\n");
             archivo.WriteLine("\tnode [fontcolor=\"red\", height=0.5, color=\"black\"]\n");
             archivo.WriteLine("\tedge [color=\"black\", dir=fordware]\n");
             recorrerGraficar(archivo);
             archivo.WriteLine("\n}");
             archivo.Close();
-           
+
             informacion = new System.Diagnostics.ProcessStartInfo("cmd", "/cdot C:\\Users\\Usuario\\Desktop\\ListaCircular.dot -Tpng -o C:\\Users\\Usuario\\Desktop\\ListaCircular.png");
-            //informacion.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            ///  informacion.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             informacion.RedirectStandardOutput = true;
             informacion.UseShellExecute = false;
             informacion.CreateNoWindow = false;
             Proceso = new System.Diagnostics.Process();
             Proceso.StartInfo = informacion;
             Proceso.Start();
-            //}
-            //catch (Exception e)
-            //{
-            //}
+            //  }
+
         }
 
-        public void recorrerGraficar(TextWriter   archivo)
+        public void recorrerGraficar(TextWriter archivo)
         {
-           NodoListaCircular  nodito = new NodoListaCircular ();
+            NodoListaCircular nodito = new NodoListaCircular();
             nodito = primero;
             String texto;
             if (nodito != null)
@@ -192,15 +223,42 @@ namespace _EDD_Practica1
                 nodito = primero;
                 do//crear enlaces
                 {
-                    texto = "nodo" + nodito.dato.nombre + nodito.dato.contraseña + "-> nodo" + nodito.atras.dato.nombre + nodito.atras.dato.contraseña + ";\n";
+                    texto = "nodo" + (nodito.dato.nombre) + nodito.dato.contraseña + "-> nodo" + nodito.atras.dato.nombre + nodito.atras.dato.contraseña + ";\n";
                     archivo.WriteLine(texto);
                     nodito = nodito.atras;
                 } while (nodito != primero);
-            } else
+            }
+            else
             {
                 MessageBox.Show("lista vacia");
             }
         }
+
+         public Usuario ObtenerUsuario(String nombre, String contra)
+        {
+            NodoListaCircular actual = new NodoListaCircular();
+            Usuario abuscar = new Usuario(nombre, contra);
+            actual = primero;
+            if (actual != null) //si no esta vacia
+            {
+                do
+                {
+                    if (actual.dato.nombre == nombre && actual.dato.contraseña == contra)
+                    {
+                        //   MessageBox.Show("el usuario ya existe: " + actual.dato.nombre );
+                        return actual.dato ;
+                    }
+                    actual = actual.siguiente;//para que siga buscando
+                } while (actual != primero); //si es el primero ya recorrio toda la lista
+
+            }
+            else
+            {
+                // MessageBox.Show("Lista vacia");
+            }
+            return null;
+        }
+
     }
 
 }

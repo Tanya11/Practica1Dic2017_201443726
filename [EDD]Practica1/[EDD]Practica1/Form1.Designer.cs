@@ -28,111 +28,147 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Registrar = new System.Windows.Forms.Button();
+            this.GraficarUsuarios = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.EliminarUsuario = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // Registrar
             // 
-            this.button1.Location = new System.Drawing.Point(299, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "registrar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Registrar.BackColor = System.Drawing.Color.DarkOrchid;
+            this.Registrar.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registrar.Location = new System.Drawing.Point(53, 323);
+            this.Registrar.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Registrar.Name = "Registrar";
+            this.Registrar.Size = new System.Drawing.Size(97, 43);
+            this.Registrar.TabIndex = 0;
+            this.Registrar.Text = "registrar";
+            this.Registrar.UseVisualStyleBackColor = false;
+            this.Registrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // richTextBox1
+            // GraficarUsuarios
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(50, 44);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(107, 21);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(459, 41);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "recorrer";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.GraficarUsuarios.BackColor = System.Drawing.Color.DarkOrchid;
+            this.GraficarUsuarios.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GraficarUsuarios.Location = new System.Drawing.Point(280, 323);
+            this.GraficarUsuarios.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.GraficarUsuarios.Name = "GraficarUsuarios";
+            this.GraficarUsuarios.Size = new System.Drawing.Size(93, 58);
+            this.GraficarUsuarios.TabIndex = 2;
+            this.GraficarUsuarios.Text = "Generar Usuarios";
+            this.GraficarUsuarios.UseVisualStyleBackColor = false;
+            this.GraficarUsuarios.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(50, 114);
+            this.textBox2.Location = new System.Drawing.Point(192, 176);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(158, 29);
             this.textBox2.TabIndex = 5;
             // 
-            // button4
+            // EliminarUsuario
             // 
-            this.button4.Location = new System.Drawing.Point(315, 114);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(178, 44);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.EliminarUsuario.BackColor = System.Drawing.Color.DarkOrchid;
+            this.EliminarUsuario.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminarUsuario.Location = new System.Drawing.Point(174, 323);
+            this.EliminarUsuario.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.EliminarUsuario.Name = "EliminarUsuario";
+            this.EliminarUsuario.Size = new System.Drawing.Size(85, 58);
+            this.EliminarUsuario.TabIndex = 6;
+            this.EliminarUsuario.Text = "Eliminar Usuario";
+            this.EliminarUsuario.UseVisualStyleBackColor = false;
+            this.EliminarUsuario.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(178, 114);
+            this.textBox1.Location = new System.Drawing.Point(192, 234);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(158, 29);
             this.textBox1.TabIndex = 11;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(163, 187);
+            this.button3.BackColor = System.Drawing.Color.BlueViolet;
+            this.button3.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(163, 418);
+            this.button3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 31);
+            this.button3.Size = new System.Drawing.Size(96, 50);
             this.button3.TabIndex = 12;
             this.button3.Text = "LOGIN";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(500, 181);
+            this.button5.Location = new System.Drawing.Point(280, 418);
+            this.button5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 42);
+            this.button5.Size = new System.Drawing.Size(123, 55);
             this.button5.TabIndex = 13;
             this.button5.Text = "SIGUIENTE";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 176);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 23);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Nombre";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 240);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 23);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Contraseña";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Kristen ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(148, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 29);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "PRACTICA 1";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 230);
+            this.BackColor = System.Drawing.Color.Violet;
+            this.ClientSize = new System.Drawing.Size(465, 496);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.EliminarUsuario);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.GraficarUsuarios);
+            this.Controls.Add(this.Registrar);
+            this.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -143,15 +179,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Registrar;
+        private System.Windows.Forms.Button GraficarUsuarios;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button EliminarUsuario;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
